@@ -4,8 +4,8 @@ class PlayersController < ApplicationController
     render json: players
   end
 
-  def create
-    player = Player.create(player_params)
+  def create #signup
+    player = Player.new(player_params)
     render json: player
   end
 
@@ -15,8 +15,7 @@ class PlayersController < ApplicationController
   end
 
   private
-  
-  def player_params
-    params.require(:player).permit(:name)
-  end
+    def player_params
+      params.require(:player).permit(:username, :password)
+    end
 end

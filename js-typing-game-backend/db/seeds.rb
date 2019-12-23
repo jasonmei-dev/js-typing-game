@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-player_1 = Player.create(name: "Jason")
-player_2 = Player.create(name: "Helen")
+player_1 = Player.create(username: "Jason", password: 'password1')
+player_2 = Player.create(username: "Helen", password: 'password2')
 game_1 = Game.create(score: 20, player_id: 1)
 game_2 = Game.create(score: 50, player_id: 2)
