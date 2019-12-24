@@ -6,7 +6,15 @@ class PlayersController < ApplicationController
 
   def create #signup
     player = Player.new(player_params)
-    render json: player
+    if player.save
+      session[:user_id] = player.id
+      render json: player
+    else
+      response = {
+        error: player.errors.full_messages.to_sentence
+      }
+      render json: response
+    end
   end
 
   def show
