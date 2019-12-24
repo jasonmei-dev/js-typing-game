@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="src/styles/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1 class='js-error-message hidden'>Login Error!</h1>
+  <h1 class='js-success-message hidden'>Logged in!</h1>
+
+  <h3>Hello World</h3>
+  <form action='http://localhost:3000/login' method='POST' class='js-login-form'>
+    <input type='text' name='player[username]'>
+    <input type='password' name='player[password]'>
+    <input type='submit'>
+  </form>
+
+  <!-- <h2>You are player.name</h2> -->
+  <script src="src/index.js"></script>
+</body>
+</html>
