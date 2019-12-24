@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
 
     if player && player.authenticate(params[:player][:password])
         session[:user_id] = player.id
-        # binding.pry
         render json: player
       else
         render json: { error: "Invalid Credentials" }
@@ -14,6 +13,14 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    render json: { status: 200, logged_out: true }
+    render json: { notice: 'Successfully logged out'}
+  end
+
+  def get_current_player
+    if logged_in?
+      render json: current_player
+    else
+      render json: { error: 'Not logged in' }
+    end
   end
 end
