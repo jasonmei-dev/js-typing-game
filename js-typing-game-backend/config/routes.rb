@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post 'signup' => 'players#create'
   delete '/logout' => 'sessions#destroy'
   get '/get_current_player' => 'sessions#get_current_player'
-  get '/get_highest_score' => 'games#get_highest_score'
+  get '/games/get_highest_score' => 'games#get_highest_score'
 
   resources :games
   resources :players
