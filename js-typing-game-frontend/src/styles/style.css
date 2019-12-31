@@ -2,3 +2,48 @@
   display: none;
   /* opacity: 0; */
 }
+
+.js-score {
+  color: red;
+}
+
+.highest-score {
+  color: green;
+}
+
+.container {
+  border: 5px solid black;
+  width: 610px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.game-container {
+  /* border: 5px solid black; */
+  height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.animate {
+  position: absolute;
+  margin-top: 100%;
+  /* top: 0; */
+  animation-duration: 3s;
+  animation-name: slidedown;
+  animation-timing-function: linear;
+}
+
+@keyframes slidedown {
+  from {
+    margin-top: 0%;
+  }
+
+  to {
+    margin-top: 100%;
+  }
+}

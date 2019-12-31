@@ -21,3 +21,13 @@ Pages
 2) signup page
 3) home page/game page includes a start button
 4) game over page/ restart
+
+To-Do
+1) Create Game class to handle game interactions (i.e. scorekeeping, animations)
+  How Game Works
+    - game window will have letters falling and the player will have to type the letters before they fall to the bottom of the window (will set window limits).
+    - an internal timer will start counting when the player clicks the 'start button'. The letter drop speed and amount of letters will increase as the timer increases.
+    - game ends once the player misses a letter.
+    - game window will 'grey-out' and a 'GAME OVER' message will cover the game window.
+    - Send POST fetch request with game score to API.
+    - player clicks the 'start game' button to restart the game.

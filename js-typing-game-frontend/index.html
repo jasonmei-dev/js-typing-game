@@ -10,10 +10,6 @@
 <body>
   <!-- <h1 class='js-error-message hidden'>Login Error!</h1>
   <h1 class='js-success-message hidden'>Logged in!</h1> -->
-  <h3>Hello World</h3>
-
-  <button type='button' class='game-start-button'>Start Game!</button>
-  <button type='button' class='dummy-button'>Click Me!</button>
 
   <form action='http://localhost:3000/login' method='POST' class='js-login-form'>
     <input type='text' name='username'>
@@ -21,15 +17,22 @@
     <input type='submit' value='Log In'>
   </form>
 
-  <button type='button' class='js-logout-button'>Logout</button>
-
   <form action='http://localhost:3000/signup' method='POST' class='js-signup-form'>
     <input type='text' name='username'>
     <input type='password' name='password'>
     <input type='submit' value='Sign Up'>
   </form>
 
-  <div class='highest-score'>
+  <button type='button' class='js-logout-button'>Logout</button>
+  <button type='button' class='dummy-button'>Click Me!</button>
+
+  <h1 class="js-header">Typing Game</h1>
+  <h2>High Score: <span class="highest-score"></span></h2>
+  <h2>Score: <span class="js-score">0</span></h2>
+  <button class="start-button">Start Game</button>
+
+  <div class='container'>
+    <div class='game-container'></div>
   </div>
 
   <script src="src/adapters/SessionsAdapter.js"></script>
