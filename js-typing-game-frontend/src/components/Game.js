@@ -5,7 +5,8 @@ class Game {
     this.time = 1000;
     this.letters = {};
     this.adapter = new GameAdapter();
-    this.initBindingsAndEventListeners()
+    this.renderHighScore();
+    this.initBindingsAndEventListeners();
   }
 
   initBindingsAndEventListeners() {
@@ -31,7 +32,7 @@ class Game {
       this.createLetter(px);
       this.time = Math.max(this.time - this.score, 300);
       setTimeout(this.playGame.bind(this), this.time);
-      console.log(this.time);
+      // console.log(this.time);
     }
   }
 
@@ -39,6 +40,7 @@ class Game {
     if (this.gameOn) {
       this.gameOn = false;
       console.log('GAME OVER!');
+      this.adapter.postGameData(this.score);
       this.resetGame();
     }
   }
