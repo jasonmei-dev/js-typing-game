@@ -17,7 +17,7 @@ class GameAdapter {
     }).then(response => response.json())
   }
 
-  getHighestScore() {
+  getHighScore() {
     return fetch('http://localhost:3000/games/get_highest_score', {
       credentials: 'include'
     })
