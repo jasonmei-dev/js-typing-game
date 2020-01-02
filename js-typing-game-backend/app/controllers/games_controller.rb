@@ -3,11 +3,6 @@ class GamesController < ApplicationController
     games = Game.all
     render json: games
   end
-  #
-  # def create
-  #   game = Game.create(game_params)
-  #   render json: game
-  # end
 
   def create
     if logged_in?
@@ -28,8 +23,4 @@ class GamesController < ApplicationController
     render json: best_game, include: [:player]
   end
 
-  private
-    def game_params
-      params.require(:game).permit(:score, :player_id)
-    end
 end

@@ -47,7 +47,7 @@ class Game {
       this.adapter.postGameData(this.score);
       if (this.score > this.highScore) {
         this.highScore = this.score
-        this.highScoreDisplay.innerText = this.highScore;
+        this.highScoreDisplay.innerText = `${this.highScore} - ${session.currentPlayer.username}`;
       }
       this.resetGame();
     }
