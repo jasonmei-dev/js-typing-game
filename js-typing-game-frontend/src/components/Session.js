@@ -17,7 +17,11 @@ class Session {
 
   setCurrentPlayer() {
     this.adapter.getCurrentPlayer().then(resp => {
-      this.currentPlayer = resp;
+      if (resp.error) {
+        this.currentPlayer = undefined;
+      } else {
+        this.currentPlayer = resp;
+      }
       console.log(this.currentPlayer);
     })
   }

@@ -19,10 +19,14 @@ class Game {
   }
 
   startGame() {
-    this.gameOn = true;
-    this.score = 0;
-    this.scoreDisplay.innerText = this.score;
-    setTimeout(this.playGame.bind(this), this.time);
+    if (session.currentPlayer !== undefined) {
+      this.gameOn = true;
+      this.score = 0;
+      this.scoreDisplay.innerText = this.score;
+      setTimeout(this.playGame.bind(this), this.time);
+    } else {
+      console.log('You must log in to play!')
+    }
   }
 
   playGame() {
@@ -40,6 +44,10 @@ class Game {
       this.gameOn = false;
       console.log('GAME OVER!');
       this.adapter.postGameData(this.score);
+      if (this.score > this.highScore) {
+        this.highScore = this.score
+        this.highScoreDisplay.innerText = this.highScore;
+      }
       this.resetGame();
     }
   }
@@ -51,7 +59,6 @@ class Game {
         node.remove();
       }
     }
-    if (this.score > this.highScore) this.highScoreDisplay.innerText = this.score;
     this.letters = {};
     this.time = 1000;
   }
