@@ -24,8 +24,8 @@ class GamesController < ApplicationController
   end
 
   def get_highest_score
-    # binding.pry
-    render json: { score: Game.highest_score }
+    best_game = Game.find_by(score: Game.highest_score)
+    render json: best_game, include: [:player]
   end
 
   private
