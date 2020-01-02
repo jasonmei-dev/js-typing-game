@@ -20,7 +20,12 @@ class GamesController < ApplicationController
 
   def get_highest_score
     best_game = Game.find_by(score: Game.highest_score)
-    render json: best_game, include: [:player]
+    render json: {
+      id: best_game.id,
+      score: best_game.score,
+      player_id: best_game.player_id,
+      player_name: best_game.player.username
+    }
   end
 
 end

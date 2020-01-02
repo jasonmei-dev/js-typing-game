@@ -97,7 +97,7 @@ class Game {
   renderHighScore() {
     this.adapter.getHighScore().then(resp => {
       this.highScore = resp.score;
-      this.highScoreDisplay.innerText = `${this.highScore} - ${resp.player.username}`;
+      this.highScoreDisplay.innerText = `${this.highScore} - ${resp.player_name}`;
     })
   }
 

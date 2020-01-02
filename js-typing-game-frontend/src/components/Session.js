@@ -27,7 +27,6 @@ class Session {
   }
 
   handleLogin(e) {
-    console.log(e.target);
     e.preventDefault();
     this.adapter.login(e.target).then(resp => {
       if (resp.username) {
