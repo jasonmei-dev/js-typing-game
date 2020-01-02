@@ -30,9 +30,8 @@ class Game {
       const gridRange = 10;
       let px = (Math.floor(Math.random() * gridRange) * 50) + 10;
       this.createLetter(px);
-      this.time = Math.max(this.time - this.score, 300);
+      this.time = Math.max(this.time - this.score, 325);
       setTimeout(this.playGame.bind(this), this.time);
-      // console.log(this.time);
     }
   }
 
@@ -41,7 +40,6 @@ class Game {
       this.gameOn = false;
       console.log('GAME OVER!');
       this.adapter.postGameData(this.score);
-      this.renderHighScore();
       this.resetGame();
     }
   }
@@ -53,6 +51,7 @@ class Game {
         node.remove();
       }
     }
+    if (this.score > this.highScore) this.highScoreDisplay.innerText = this.score;
     this.letters = {};
     this.time = 1000;
   }
@@ -89,7 +88,9 @@ class Game {
 
   renderHighScore() {
     this.adapter.getHighScore().then(resp => {
-      this.highScoreDisplay.innerText = resp.score;
+      this.highScore = resp.score;
+      this.highScoreDisplay.innerText = this.highScore;
     })
   }
-}
+
+ }
