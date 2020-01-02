@@ -3,7 +3,7 @@ class GameAdapter {
     this.baseUrl = 'http://localhost:3000/games'
   }
 
-  postGameData(gameScore) { // will take gameData as argument
+  postGameData(gameScore) {
     return fetch(this.baseUrl, {
       credentials: 'include',
       method: 'POST',
@@ -12,7 +12,7 @@ class GameAdapter {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-        score: gameScore // should be gameData.score
+        score: gameScore
       })
     }).then(response => response.json())
   }

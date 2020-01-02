@@ -41,6 +41,7 @@ class Game {
       this.gameOn = false;
       console.log('GAME OVER!');
       this.adapter.postGameData(this.score);
+      this.renderHighScore();
       this.resetGame();
     }
   }
