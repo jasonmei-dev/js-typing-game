@@ -45,6 +45,7 @@ class Session {
     this.adapter.logout()
     .then(() => {
       this.currentPlayer = undefined;
+      game.scoreDisplay.innerText = 0;
       console.log('logout successful!')
     })
     .catch(() => console.log('logout unsuccessful'));
