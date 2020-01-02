@@ -27,16 +27,18 @@ class Session {
   }
 
   handleLogin(e) {
+    console.log(e.target);
     e.preventDefault();
     this.adapter.login(e.target).then(resp => {
       if (resp.username) {
         this.currentPlayer = resp;
-        console.log(`logged in as ${resp.username}`)
+        console.log(`logged in as ${this.currentPlayer.username}`)
         console.log(this.currentPlayer)
       } else {
         console.log(resp);
       }
     })
+    this.loginForm.reset();
   }
 
   handleLogout() {
@@ -54,6 +56,7 @@ class Session {
       this.currentPlayer = resp;
       console.log(this.currentPlayer);
     })
+    this.signupForm.reset();
   }
 
 }
