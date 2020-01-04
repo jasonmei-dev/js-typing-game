@@ -28,15 +28,19 @@ class Session {
 
   handleLogin(e) {
     e.preventDefault();
-    this.adapter.login(e.target).then(resp => {
-      if (resp.username) {
-        this.currentPlayer = resp;
-        console.log(`logged in as ${this.currentPlayer.username}`)
-        console.log(this.currentPlayer)
-      } else {
-        console.log(resp);
-      }
-    })
+    if (this.currentPlayer === undefined) {
+      this.adapter.login(e.target).then(resp => {
+        if (resp.username) {
+          this.currentPlayer = resp;
+          console.log(`logged in as ${this.currentPlayer.username}`)
+          console.log(this.currentPlayer)
+        } else {
+          console.log(resp);
+        }
+      })
+    } else {
+      console.log(`You're already logged in as ${this.currentPlayer.username}.`)
+    }
     this.loginForm.reset();
   }
 
@@ -52,10 +56,14 @@ class Session {
 
   handleSignup(e) {
     e.preventDefault();
-    this.adapter.signup(e.target).then(resp => {
-      this.currentPlayer = resp;
-      console.log(this.currentPlayer);
-    })
+    if (this.currentPlayer === undefined) {
+      this.adapter.signup(e.target).then(resp => {
+        this.currentPlayer = resp;
+        console.log(this.currentPlayer);
+      })
+    } else {
+      console.log(`You can't Sign Up if you're already logged in as ${this.currentPlayer.username}.`)
+    }
     this.signupForm.reset();
   }
 
