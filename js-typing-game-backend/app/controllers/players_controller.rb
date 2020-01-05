@@ -8,7 +8,7 @@ class PlayersController < ApplicationController
     player = Player.new(player_params)
     if player.save
       session[:user_id] = player.id
-      render json: player
+      render json: player, except: [:password_digest, :created_at, :updated_at]
     else
       response = {
         error: player.errors.full_messages.to_sentence
