@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="src/styles/style.css">
-  <title>Document</title>
+  <title>Ugly Typing Game</title>
 </head>
 <body>
 
-  <div class='nav-buttons'>
-    <h2 class='hidden welcome'>Welcome <span class='player-name'></span></h2>
+  <nav class='nav-buttons'>
+    <span class='player-name'></span>
     <button type='button' class='login-button'>Log In</button>
-    <button type='button' class='js-logout-button'>Logout</button>
+    <button type='button' class='hidden js-logout-button'>Logout</button>
     <button type='button' class='signup-button'>Register</button>
-  </div>
+  </nav>
+
+  <header class='js-header'><h1>Ugly Typing Game</h1></header>
 
   <form action='http://localhost:3000/login' method='POST' class='hidden js-login-form'>
     <label>Username:</label><br>
@@ -34,12 +36,11 @@
     <button type='button' class='signup-cancel'>Cancel</button>
   </form>
 
-
   <div class='container'>
-    <h1 class='js-header'>Typing Game</h1>
     <h2>High Score: <span class="high-score"></span></h2>
     <h2>Score: <span class="js-score">0</span></h2>
     <button class="start-button">Start Game</button>
+    <!-- <button class='instructions-button'>Instructions</button> -->
   </div>
 
   <div class='game-container'>
@@ -50,6 +51,15 @@
     </div>
   </div>
 
+  <div class='instructions'>
+    <h3>Instructions</h3>
+    <ul>
+      <li><strong>Click</strong> the <strong>Start Game</strong> button to begin.</li>
+      <li>Type the falling letters that appear before they fall off the screen.</li>
+      <li>The letters will appear faster the better you do, so stay on your toes!</li>
+      <li>If a letter falls off the screen, it's <strong>GAME OVER</strong>!</li>
+    </ul>
+  </div>
 
   <div class='hidden modal-background'></div>
 
@@ -59,6 +69,5 @@
   <script src="src/components/Game.js"></script>
   <script src="src/components/App.js"></script>
   <script src="src/index.js"></script>
-
 </body>
 </html>

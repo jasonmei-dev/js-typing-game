@@ -34,15 +34,15 @@ class Session {
     if (this.currentPlayer === undefined) {
       this.adapter.login(e.target).then(resp => {
         if (resp.username) {
-          this.loginForm.classList.add('hidden');
-          app.modalBackground.classList.add('hidden');
           this.currentPlayer = resp;
 
+          this.loginForm.classList.add('hidden');
+          app.modalBackground.classList.add('hidden');
+
           const playerNameDisplay = document.querySelector('.player-name');
-          const welcome = document.querySelector('.welcome');
-          playerNameDisplay.innerText = `${resp.username}`;
-          welcome.classList.remove('hidden');
-          // this.logoutButton.classList.remove('hidden');
+          playerNameDisplay.innerText = `Welcome ${resp.username}`;
+
+          this.logoutButton.classList.remove('hidden');
           app.loginButton.classList.add('hidden');
           app.signupButton.classList.add('hidden');
         } else {
@@ -62,10 +62,11 @@ class Session {
       app.game.scoreDisplay.innerText = 0;
     })
     app.game.gameOverMessage.classList.add('hidden');
-    // this.logoutButton.classList.add('hidden');
+    this.logoutButton.classList.add('hidden');
     app.loginButton.classList.remove('hidden');
     app.signupButton.classList.remove('hidden');
-    // this.welcome.classList.add('hidden');
+    const playerNameDisplay = document.querySelector('.player-name');
+    playerNameDisplay.innerText = '';
   }
 
   handleSignup(e) {
@@ -81,10 +82,9 @@ class Session {
           app.modalBackground.classList.add('hidden');
 
           const playerNameDisplay = document.querySelector('.player-name');
-          const welcome = document.querySelector('.welcome');
-          playerNameDisplay.innerText = `${resp.username}`;
-          welcome.classList.remove('hidden');
-          // this.logoutButton.classList.remove('hidden');
+          playerNameDisplay.innerText = `Welcome ${resp.username}`;
+
+          this.logoutButton.classList.remove('hidden');
           app.loginButton.classList.add('hidden');
           app.signupButton.classList.add('hidden');
         }

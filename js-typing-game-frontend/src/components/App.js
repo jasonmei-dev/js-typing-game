@@ -9,9 +9,10 @@ class App {
     this.loginButton = document.querySelector('.login-button');
     this.signupButton = document.querySelector('.signup-button');
 
-
     this.loginCancelBtn = document.querySelector('.login-cancel');
     this.signupCancelBtn = document.querySelector('.signup-cancel');
+
+    // this.instructionsBtn = document.querySelector('.instructions-button');
 
     this.modalBackground = document.querySelector('.modal-background');
 
@@ -19,6 +20,7 @@ class App {
     this.loginCancelBtn.addEventListener('click', this.cancelLogin.bind(this));
     this.signupButton.addEventListener('click', this.showSignupForm.bind(this));
     this.signupCancelBtn.addEventListener('click', this.cancelSignup.bind(this));
+    // this.instructionsBtn.addEventListener('click', this.showInstructions.bind(this));
   }
 
   showLoginForm() {
@@ -40,4 +42,9 @@ class App {
     this.session.signupForm.classList.add('hidden');
     this.modalBackground.classList.add('hidden');
   }
+
+  // showInstructions() {
+  //   const instructions = document.querySelector('.instructions');
+  //   instructions.classList.remove('hidden');
+  // }
 }

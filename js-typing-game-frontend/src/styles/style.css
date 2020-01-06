@@ -4,7 +4,34 @@ body {
 
 .hidden {
   display: none;
-  /* opacity: 0; */
+}
+
+.nav-buttons {
+  text-align: right;
+}
+
+.js-header {
+  text-align: center;
+}
+
+.js-login-form {
+  border: 3px solid black;
+  background-color: white;
+  z-index: 900;
+  position: fixed;
+  right: 0;
+  left: 50%;
+  margin-right: 10px;
+}
+
+.js-signup-form {
+  border: 3px solid black;
+  background-color: white;
+  z-index: 900;
+  position: fixed;
+  right: 0;
+  left: 50%;
+  margin-right: 10px;
 }
 
 .js-score {
@@ -16,15 +43,20 @@ body {
 }
 
 .container {
+
+}
+
+.game-container {
   border: 5px solid black;
+  background-color: cyan;
   width: 600px;
   height: 500px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
-.game-container {
-  /* border: 5px solid black; */
+.game-window {
   height: 500px;
   width: 500px;
   margin-left: auto;
@@ -33,8 +65,29 @@ body {
   overflow: hidden;
 }
 
-.animate {
+.game-over {
+  color: red;
   position: absolute;
+  top: 29%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 40px;
+}
+
+.modal-background {
+  position: fixed;
+  background-color: gray;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+}
+
+.letter {
+  position: absolute;
+  /* color: gold; */
   margin-top: 100%;
   /* top: 0; */
   animation-duration: 3s;

@@ -69,7 +69,7 @@ class Game {
 
   createLetter(leftPxs) {
     const letter = document.createElement('h1');
-    letter.className = 'animate';
+    letter.className = 'letter';
     letter.innerText = `${this.randomLetter()}`;
     letter.style.left = `${leftPxs}px`;
     if (this.letters[letter.innerText] === undefined) this.letters[letter.innerText] = [];
