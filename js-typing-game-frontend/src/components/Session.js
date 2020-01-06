@@ -35,16 +35,13 @@ class Session {
       this.adapter.login(e.target).then(resp => {
         if (resp.username) {
           this.currentPlayer = resp;
-
+          this.logoutButton.classList.remove('hidden');
           this.loginForm.classList.add('hidden');
           app.modalBackground.classList.add('hidden');
-
-          const playerNameDisplay = document.querySelector('.player-name');
-          playerNameDisplay.innerText = `Welcome ${resp.username}`;
-
-          this.logoutButton.classList.remove('hidden');
           app.loginButton.classList.add('hidden');
           app.signupButton.classList.add('hidden');
+          app.welcome.classList.remove('hidden');
+          app.playerNameDisplay.innerText = `${resp.username}`;
         } else {
           alert(`${resp.error}`)
         }
@@ -61,12 +58,13 @@ class Session {
       this.currentPlayer = undefined;
       app.game.scoreDisplay.innerText = 0;
     })
-    app.game.gameOverMessage.classList.add('hidden');
     this.logoutButton.classList.add('hidden');
+    app.game.gameOverMessage.classList.add('hidden');
     app.loginButton.classList.remove('hidden');
     app.signupButton.classList.remove('hidden');
-    const playerNameDisplay = document.querySelector('.player-name');
-    playerNameDisplay.innerText = '';
+    app.welcome.classList.remove('hidden');
+    app.welcome.classList.add('hidden');
+    app.playerNameDisplay.innerText = '';
   }
 
   handleSignup(e) {
@@ -80,17 +78,15 @@ class Session {
           this.currentPlayer = resp;
           this.signupForm.classList.add('hidden');
           app.modalBackground.classList.add('hidden');
-
-          const playerNameDisplay = document.querySelector('.player-name');
-          playerNameDisplay.innerText = `Welcome ${resp.username}`;
-
-          this.logoutButton.classList.remove('hidden');
+          app.welcome.classList.remove('hidden');
+          app.playerNameDisplay.innerText = `${resp.username}`;
           app.loginButton.classList.add('hidden');
           app.signupButton.classList.add('hidden');
+          this.logoutButton.classList.remove('hidden');
         }
       })
     } else {
-      alert("Can't sign up when you're logged in.")
+      alert("Can't register when you're already logged in.")
     }
     this.signupForm.reset();
   }

@@ -10,7 +10,7 @@
 <body>
 
   <nav class='nav-buttons'>
-    <span class='player-name'></span>
+    <span class='hidden welcome'>Welcome <span class='player-name'></span></span>
     <button type='button' class='button login-button'>Log In</button>
     <button type='button' class='button hidden logout-button'>Logout</button>
     <button type='button' class='button signup-button'>Register</button>
@@ -49,7 +49,7 @@
     <h2>High Score: <span class="high-score"></span></h2>
     <h2>Score: <span class="score">0</span></h2>
     <button class="button start-button">Start Game</button>
-    <!-- <button class='instructions-button'>Instructions</button> -->
+    <button class='button instructions-button'>Instructions</button>
   </div>
 
   <div class='game-container'>
@@ -60,7 +60,8 @@
     </div>
   </div>
 
-  <div class='instructions'>
+  <div class='hidden instructions'>
+    <h4 class='x-button'>&times</h4>
     <h3>Instructions</h3>
     <ul>
       <li><strong>Click</strong> the <strong>Start Game</strong> button to begin.</li>
