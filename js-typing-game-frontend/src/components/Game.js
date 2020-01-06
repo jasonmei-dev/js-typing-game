@@ -10,7 +10,7 @@ class Game {
   }
 
   initBindingsAndEventListeners() {
-    this.scoreDisplay = document.querySelector('.js-score');
+    this.scoreDisplay = document.querySelector('.score');
     this.highScoreDisplay = document.querySelector('.high-score');
     this.gameWindow = document.querySelector('.game-window');
     this.startButton = document.querySelector('.start-button');
@@ -27,7 +27,7 @@ class Game {
       this.scoreDisplay.innerText = this.score;
       setTimeout(this.playGame.bind(this), this.time);
     } else {
-      alert('You must log in to play!')
+      alert('You must register and log in to play!')
     }
   }
 

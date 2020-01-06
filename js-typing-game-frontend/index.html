@@ -11,35 +11,44 @@
 
   <nav class='nav-buttons'>
     <span class='player-name'></span>
-    <button type='button' class='login-button'>Log In</button>
-    <button type='button' class='hidden js-logout-button'>Logout</button>
-    <button type='button' class='signup-button'>Register</button>
+    <button type='button' class='button login-button'>Log In</button>
+    <button type='button' class='button hidden logout-button'>Logout</button>
+    <button type='button' class='button signup-button'>Register</button>
   </nav>
 
-  <header class='js-header'><h1>Ugly Typing Game</h1></header>
+  <header class='header'><h1>Ugly Typing Game</h1></header>
 
-  <form action='http://localhost:3000/login' method='POST' class='hidden js-login-form'>
-    <label>Username:</label><br>
-    <input type='text' name='username'><br>
-    <label>Password:</label><br>
-    <input type='password' name='password'><br>
-    <input type='submit' value='Log In'>
-    <button type='button' class='login-cancel'>Cancel</button>
+  <form action='http://localhost:3000/login' method='POST' class='hidden form login-form'>
+    <div class='form-group'>
+      <label>Username:</label>
+      <input type='text' name='username'>
+    </div>
+    <div class='form-group'>
+      <label>Password:</label>
+      <input type='password' name='password'>
+    </div>
+      <input type='submit' value='Log In'>
+      <button type='button' class='login-cancel'>Cancel</button>
   </form>
 
-  <form action='http://localhost:3000/signup' method='POST' class='hidden js-signup-form'>
-    <label>Username:</label><br>
-    <input type='text' name='username'><br>
-    <label>Password:</label><br>
-    <input type='password' name='password'><br>
-    <input type='submit' value='Register'>
-    <button type='button' class='signup-cancel'>Cancel</button>
+  <form action='http://localhost:3000/signup' method='POST' class='hidden form signup-form'>
+    <div class='form-group'>
+      <label>Username:</label>
+      <input type='text' name='username'>
+    </div>
+    <div class='form-group'>
+      <label>Password:</label>
+      <input type='password' name='password'>
+    </div>
+      <input type='submit' value='Register'>
+      <button type='button' class='signup-cancel'>Cancel</button>
+    </div>
   </form>
 
   <div class='container'>
     <h2>High Score: <span class="high-score"></span></h2>
-    <h2>Score: <span class="js-score">0</span></h2>
-    <button class="start-button">Start Game</button>
+    <h2>Score: <span class="score">0</span></h2>
+    <button class="button start-button">Start Game</button>
     <!-- <button class='instructions-button'>Instructions</button> -->
   </div>
 

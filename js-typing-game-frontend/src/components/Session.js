@@ -7,9 +7,9 @@ class Session {
   }
 
   initBindingsAndEventListeners() {
-    this.loginForm = document.querySelector('.js-login-form');
-    this.logoutButton = document.querySelector('.js-logout-button');
-    this.signupForm = document.querySelector('.js-signup-form');
+    this.loginForm = document.querySelector('.login-form');
+    this.logoutButton = document.querySelector('.logout-button');
+    this.signupForm = document.querySelector('.signup-form');
     this.loginForm.addEventListener('submit', this.handleLogin.bind(this));
     this.logoutButton.addEventListener('click', this.handleLogout.bind(this));
     this.signupForm.addEventListener('submit', this.handleSignup.bind(this));

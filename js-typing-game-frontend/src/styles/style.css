@@ -10,31 +10,52 @@ body {
   text-align: right;
 }
 
-.js-header {
+.header {
   text-align: center;
 }
 
-.js-login-form {
+.player-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-group {
+  padding-bottom: 10px;
+}
+
+.form label {
+  display: block;
+}
+
+.form input[type='text'], .form input[type='password'] {
+  padding: 4px;
+  width: 75%;
+  /* border: 1px solid black; */
+}
+
+.form {
   border: 3px solid black;
   background-color: white;
   z-index: 900;
   position: fixed;
+  top: 50px;
   right: 0;
-  left: 50%;
+  width: 200px;
   margin-right: 10px;
+  padding: 20px;
 }
 
-.js-signup-form {
-  border: 3px solid black;
-  background-color: white;
-  z-index: 900;
-  position: fixed;
-  right: 0;
-  left: 50%;
-  margin-right: 10px;
-}
-
-.js-score {
+.score {
   color: red;
 }
 
