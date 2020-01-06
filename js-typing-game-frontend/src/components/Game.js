@@ -12,20 +12,22 @@ class Game {
   initBindingsAndEventListeners() {
     this.scoreDisplay = document.querySelector('.js-score');
     this.highScoreDisplay = document.querySelector('.high-score');
-    this.gameWindow = document.querySelector('.game-container');
+    this.gameWindow = document.querySelector('.game-window');
     this.startButton = document.querySelector('.start-button');
+    this.gameOverMessage = document.querySelector('.game-over');
     this.startButton.addEventListener('click', this.startGame.bind(this));
     document.addEventListener('keypress', this.handleKeyPress.bind(this));
   }
 
   startGame() {
-    if (session.currentPlayer !== undefined) {
+    if (app.session.currentPlayer !== undefined) {
+      this.gameOverMessage.classList.add('hidden');
       this.gameOn = true;
       this.score = 0;
       this.scoreDisplay.innerText = this.score;
       setTimeout(this.playGame.bind(this), this.time);
     } else {
-      console.log('You must log in to play!')
+      alert('You must log in to play!')
     }
   }
 
@@ -44,10 +46,11 @@ class Game {
     if (this.gameOn) {
       this.gameOn = false;
       console.log('GAME OVER!');
+      this.gameOverMessage.classList.remove('hidden');
       this.adapter.postGameData(this.score);
       if (this.score > this.highScore) {
         this.highScore = this.score
-        this.highScoreDisplay.innerText = `${this.highScore} - ${session.currentPlayer.username}`;
+        this.highScoreDisplay.innerText = `${this.highScore} - ${app.session.currentPlayer.username}`;
       }
       this.resetGame();
     }

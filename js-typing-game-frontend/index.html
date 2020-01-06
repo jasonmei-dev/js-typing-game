@@ -8,36 +8,57 @@
   <title>Document</title>
 </head>
 <body>
-  <!-- <h1 class='js-error-message hidden'>Login Error!</h1>
-  <h1 class='js-success-message hidden'>Logged in!</h1> -->
 
-  <form action='http://localhost:3000/login' method='POST' class='js-login-form'>
-    <input type='text' name='username' placeholder='Username'>
-    <input type='password' name='password' placeholder='Password'>
+  <div class='nav-buttons'>
+    <h2 class='hidden welcome'>Welcome <span class='player-name'></span></h2>
+    <button type='button' class='login-button'>Log In</button>
+    <button type='button' class='js-logout-button'>Logout</button>
+    <button type='button' class='signup-button'>Register</button>
+  </div>
+
+  <form action='http://localhost:3000/login' method='POST' class='hidden js-login-form'>
+    <label>Username:</label><br>
+    <input type='text' name='username'><br>
+    <label>Password:</label><br>
+    <input type='password' name='password'><br>
     <input type='submit' value='Log In'>
+    <button type='button' class='login-cancel'>Cancel</button>
   </form>
 
-  <form action='http://localhost:3000/signup' method='POST' class='js-signup-form'>
-    <input type='text' name='username' placeholder='Username'>
-    <input type='password' name='password' placeholder='Password'>
-    <input type='submit' value='Sign Up'>
+  <form action='http://localhost:3000/signup' method='POST' class='hidden js-signup-form'>
+    <label>Username:</label><br>
+    <input type='text' name='username'><br>
+    <label>Password:</label><br>
+    <input type='password' name='password'><br>
+    <input type='submit' value='Register'>
+    <button type='button' class='signup-cancel'>Cancel</button>
   </form>
 
-  <button type='button' class='js-logout-button'>Logout</button>
-
-  <h1 class="js-header">Typing Game</h1>
-  <h2>High Score: <span class="high-score"></span></h2>
-  <h2>Score: <span class="js-score">0</span></h2>
-  <button class="start-button">Start Game</button>
 
   <div class='container'>
-    <div class='game-container'></div>
+    <h1 class='js-header'>Typing Game</h1>
+    <h2>High Score: <span class="high-score"></span></h2>
+    <h2>Score: <span class="js-score">0</span></h2>
+    <button class="start-button">Start Game</button>
   </div>
+
+  <div class='game-container'>
+    <div class='hidden game-over'>
+      <h1>GAME OVER!</h1>
+    </div>
+    <div class='game-window'>
+    </div>
+  </div>
+
+
+  <div class='hidden modal-background'></div>
 
   <script src="src/adapters/SessionsAdapter.js"></script>
   <script src="src/adapters/GameAdapter.js"></script>
   <script src="src/components/Session.js"></script>
   <script src="src/components/Game.js"></script>
+  <script src="src/components/App.js"></script>
   <script src="src/index.js"></script>
+
 </body>
 </html>

@@ -10,7 +10,6 @@ class Session {
     this.loginForm = document.querySelector('.js-login-form');
     this.logoutButton = document.querySelector('.js-logout-button');
     this.signupForm = document.querySelector('.js-signup-form');
-    this.welcomeMessage = document.querySelector('.welcome-message');
     this.loginForm.addEventListener('submit', this.handleLogin.bind(this));
     this.logoutButton.addEventListener('click', this.handleLogout.bind(this));
     this.signupForm.addEventListener('submit', this.handleSignup.bind(this));
@@ -26,22 +25,32 @@ class Session {
     })
   }
 
+  loggedIn() {
+    return this.currentPlayer !== undefined;
+  }
+
   handleLogin(e) {
     e.preventDefault();
     if (this.currentPlayer === undefined) {
       this.adapter.login(e.target).then(resp => {
         if (resp.username) {
+          this.loginForm.classList.add('hidden');
+          app.modalBackground.classList.add('hidden');
           this.currentPlayer = resp;
-          const h1 = document.createElement('h1');
-          h1.innerText = `Welcome, ${this.currentPlayer.username}`
-          this.welcomeMessage.appendChild(h1);
-          this.welcomeMessage.classList.remove('hidden');
+
+          const playerNameDisplay = document.querySelector('.player-name');
+          const welcome = document.querySelector('.welcome');
+          playerNameDisplay.innerText = `${resp.username}`;
+          welcome.classList.remove('hidden');
+          // this.logoutButton.classList.remove('hidden');
+          app.loginButton.classList.add('hidden');
+          app.signupButton.classList.add('hidden');
         } else {
-          console.log(resp.error);
+          alert(`${resp.error}`)
         }
       })
     } else {
-      console.log(`You're already logged in as ${this.currentPlayer.username}.`)
+      alert(`You're already logged in as ${this.currentPlayer.username}.`)
     }
     this.loginForm.reset();
   }
@@ -50,9 +59,13 @@ class Session {
     this.adapter.logout()
     .then(() => {
       this.currentPlayer = undefined;
-      game.scoreDisplay.innerText = 0;
+      app.game.scoreDisplay.innerText = 0;
     })
-    this.welcomeMessage.classList.add('hidden');
+    app.game.gameOverMessage.classList.add('hidden');
+    // this.logoutButton.classList.add('hidden');
+    app.loginButton.classList.remove('hidden');
+    app.signupButton.classList.remove('hidden');
+    // this.welcome.classList.add('hidden');
   }
 
   handleSignup(e) {
@@ -61,13 +74,23 @@ class Session {
       this.adapter.signup(e.target).then(resp => {
         if (resp.error) {
           this.currentPlayer = undefined;
-          console.log(resp.error);
+          alert(resp.error);
         } else {
           this.currentPlayer = resp;
+          this.signupForm.classList.add('hidden');
+          app.modalBackground.classList.add('hidden');
+
+          const playerNameDisplay = document.querySelector('.player-name');
+          const welcome = document.querySelector('.welcome');
+          playerNameDisplay.innerText = `${resp.username}`;
+          welcome.classList.remove('hidden');
+          // this.logoutButton.classList.remove('hidden');
+          app.loginButton.classList.add('hidden');
+          app.signupButton.classList.add('hidden');
         }
       })
     } else {
-      console.log("Can't sign up when you're logged in.")
+      alert("Can't sign up when you're logged in.")
     }
     this.signupForm.reset();
   }

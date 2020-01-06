@@ -1,2 +1,1 @@
-const session = new Session();
-const game = new Game();
+const app = new App();
