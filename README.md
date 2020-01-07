@@ -1,4 +1,4 @@
-# js-typing-game
+# Keyboard Frenzy
 
 This is a SPA made for Flatiron School's Rails/Javascript Portfolio Project called Keyboard Frenzy. Keyboard Frenzy is a typing game that uses a Rails API backend with a Javascript frontend. This app also has Rails sessions and cookies added back to the API so the user can log in/out and create an account before playing the game.
 
