@@ -8,6 +8,7 @@ body {
 
 .nav-buttons {
   text-align: right;
+  margin-right: 20px;
 }
 
 .header {
@@ -102,10 +103,11 @@ body {
   padding: 10px;
 }
 
-.container {
+.sidebar {
   margin-left: 20px;
+  margin-bottom: 20px;
   float: left;
-  /* margin: 20px; */
+  margin: 20px;
 }
 
 .game-container {
@@ -114,7 +116,6 @@ body {
   background-color: cyan;
   width: 600px;
   height: 500px;
-  /* margin-left: auto; */
   margin-right: 20px;
   position: relative;
   float: right;

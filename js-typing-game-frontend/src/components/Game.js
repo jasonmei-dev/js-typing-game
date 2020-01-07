@@ -38,7 +38,6 @@ class Game {
       this.createLetter(px);
       this.time = Math.max(this.time - this.score, 320);
       setTimeout(this.playGame.bind(this), this.time);
-      // console.log(this.time);
     }
   }
 
