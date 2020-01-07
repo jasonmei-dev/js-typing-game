@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 player_1 = Player.create(username: "Jason", password: 'password')
 player_2 = Player.create(username: "Helen", password: 'password')
-game_1 = Game.create(score: 10, player_id: 1)
-game_2 = Game.create(score: 15, player_id: 2)
+game_1 = Game.create(score: 25, player_id: 1)
+game_2 = Game.create(score: 30, player_id: 2)
