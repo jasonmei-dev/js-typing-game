@@ -4,11 +4,11 @@ This is a SPA made for Flatiron School's Rails/Javascript Portfolio Project call
 
 ## Installation & Usage
 
-Currently this game can only be played on Google Chrome and requires the user to download the Google Chrome app [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
+Currently this game can only be played on Google Chrome and requires the user to download the Google Chrome app [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en).
 
 Backend Setup:
 1. Run `$ cd js-typing-game-backend` and run `$ bundle install` to install all gem dependencies.
-2. Run all rake migrations with `$ rails db:migrate`.
+2. Run all Rails migrations with `$ rails db:migrate`.
 3. Run `$ rails db:seed` to load seed data.
 4. Run `$ rails server` to start up the default Rails server `localhost:3000`.
 
