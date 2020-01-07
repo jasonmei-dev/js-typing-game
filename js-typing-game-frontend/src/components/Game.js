@@ -36,7 +36,7 @@ class Game {
       const gridRange = 10;
       let px = (Math.floor(Math.random() * gridRange) * 50) + 10;
       this.createLetter(px);
-      this.time = Math.max(this.time - this.score, 320);
+      this.time = Math.max(this.time - this.score, 300);
       setTimeout(this.playGame.bind(this), this.time);
     }
   }
