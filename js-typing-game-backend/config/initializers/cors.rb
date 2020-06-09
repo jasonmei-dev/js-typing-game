@@ -11,7 +11,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     # this doesn't work because of credentials mode: 'include'
     # origins '*'
 
-    origins 'http://localhost:8887'
+    origins 'localhost:8080'
 
     resource '*',
       headers: :any,
