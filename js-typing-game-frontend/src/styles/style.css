@@ -103,7 +103,12 @@ body {
   padding: 10px;
 }
 
+.container {
+  width: 950px;
+}
+
 .sidebar {
+  display: block;
   margin-left: 20px;
   margin-bottom: 20px;
   float: left;
@@ -111,6 +116,7 @@ body {
 }
 
 .game-container {
+  display: block;
   border: 5px solid black;
   border-radius: 15px;
   background-color: cyan;
