@@ -1,5 +1,6 @@
 body {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
 }
 
 .hidden {
@@ -47,6 +48,7 @@ body {
   width: 200px;
   margin-right: 10px;
   padding: 20px;
+  text-align: left;
 }
 
 .form-group {
@@ -78,6 +80,7 @@ body {
   position: absolute;
   right: 25%;
   z-index: 900;
+  text-align: left;
 }
 
 .x-button {
@@ -103,16 +106,18 @@ body {
   padding: 10px;
 }
 
-.container {
+.app-container {
   width: 950px;
+  display: inline-block;
 }
 
 .sidebar {
   display: block;
   margin-left: 20px;
   margin-bottom: 20px;
-  float: left;
   margin: 20px;
+  float: left;
+  text-align: left;
 }
 
 .game-container {
