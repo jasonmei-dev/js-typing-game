@@ -1,85 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="src/styles/style.css">
-  <title>Keyboard Frenzy</title>
-</head>
-<body>
-
-  <nav class='nav-buttons'>
-    <span class='hidden welcome'>Welcome <span class='player-name'></span></span>
-    <button type='button' class='button login-button'>Log In</button>
-    <button type='button' class='button hidden logout-button'>Logout</button>
-    <button type='button' class='button signup-button'>Register</button>
-  </nav>
-
-  <header class='header'><h1>Keyboard Frenzy</h1></header>
-
-  <form action='http://localhost:3000/login' method='POST' class='hidden form login-form'>
-    <div class='form-group'>
-      <label>Username:</label>
-      <input type='text' name='username'>
-    </div>
-    <div class='form-group'>
-      <label>Password:</label>
-      <input type='password' name='password'>
-    </div>
-      <input type='submit' value='Log In'>
-      <button type='button' class='login-cancel'>Cancel</button>
-  </form>
-
-  <form action='http://localhost:3000/signup' method='POST' class='hidden form signup-form'>
-    <div class='form-group'>
-      <label>Username:</label>
-      <input type='text' name='username'>
-    </div>
-    <div class='form-group'>
-      <label>Password:</label>
-      <input type='password' name='password'>
-    </div>
-      <input type='submit' value='Register'>
-      <button type='button' class='signup-cancel'>Cancel</button>
-    </div>
-  </form>
-
-  <div class="app-container">
-    <div class='sidebar'>
-      <h2>High Score: <span class="high-score"></span></h2>
-      <h2>Score: <span class="score">0</span></h2>
-      <button class="button start-button">Start Game</button>
-      <button class='button instructions-button'>Instructions</button>
-    </div>
-  
-    <div class='game-container'>
-      <div class='hidden game-over'>
-        <h1>GAME OVER!</h1>
-      </div>
-      <div class='game-window'>
-      </div>
-    </div>
-  
-    <div class='hidden instructions'>
-      <h4 class='x-button'>&times</h4>
-      <h3>Instructions</h3>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://kit.fontawesome.com/00ebd93dd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <title>Keyboard Frenzy</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <h1 class="logo">Keyboard Frenzy</h1>
       <ul>
-        <li><strong>Click</strong> the <strong>Start Game</strong> button to begin.</li>
-        <li>Type the falling letters that appear before they fall off the screen.</li>
-        <li>The letters will appear faster the better you do, so stay on your toes!</li>
-        <li>If a letter falls off the screen, it's <strong>GAME OVER</strong>!</li>
+        <li>
+          <span class="hidden welcome"
+            >Welcome <span class="player-name"></span
+          ></span>
+        </li>
+        <li><button class="btn login-button">Log In</button></li>
+        <li><button class="btn signup-button">Register</button></li>
+        <li><button class="btn logout-button hidden">Log Out</button></li>
       </ul>
-    </div>
-  </div>
+    </nav>
 
-  <div class='hidden modal-background'></div>
+    <!-- Forms -->
+    <form
+      action="http://localhost:3000/login"
+      method="POST"
+      class="hidden form login-form"
+    >
+      <div class="form-group">
+        <label>Username:</label>
+        <input type="text" name="username" />
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div class="form-buttons">
+        <button type="submit" class="btn submit">Log In</button>
+        <button type="button" class="btn login-cancel">Cancel</button>
+      </div>
+    </form>
 
-  <script src="src/adapters/SessionsAdapter.js"></script>
-  <script src="src/adapters/GameAdapter.js"></script>
-  <script src="src/components/Session.js"></script>
-  <script src="src/components/Game.js"></script>
-  <script src="src/components/App.js"></script>
-  <script src="src/index.js"></script>
-</body>
+    <form
+      action="http://localhost:3000/signup"
+      method="POST"
+      class="hidden form signup-form"
+    >
+      <div class="form-group">
+        <label>Username:</label>
+        <input type="text" name="username" />
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div class="form-buttons">
+        <button type="submit" class="btn submit">Register</button>
+        <button type="button" class="btn signup-cancel">Cancel</button>
+      </div>
+    </form>
+
+    <!-- Game Section -->
+    <section class="app-container">
+      <div class="game-container">
+        <div class="hidden game-over">
+          <h1>GAME OVER!</h1>
+        </div>
+        <div class="game-window"></div>
+      </div>
+
+      <aside class="sidebar">
+        <h2>High Score: <span class="high-score"></span></h2>
+        <h2>Score: <span class="score">0</span></h2>
+        <div class="sidebar-buttons">
+          <button class="btn start-button">Start Game</button>
+          <button class="btn instructions-button">Instructions</button>
+        </div>
+      </aside>
+
+      <div class="hidden instructions">
+        <div class="x-button"><i class="fas fa-times"></i></div>
+        <h3>Instructions</h3>
+        <ul>
+          <li>
+            <span>Click</span> the <span>Start Game</span> button to begin.
+          </li>
+          <li>
+            Type the falling letters that appear before they fall off the
+            screen.
+          </li>
+          <li>
+            The letters will appear faster the better you do, so stay on your
+            toes!
+          </li>
+          <li>
+            If a letter falls off the screen, it's <span>GAME OVER</span>!
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="hidden modal-background"></div>
+
+    <script src="src/adapters/SessionsAdapter.js"></script>
+    <script src="src/adapters/GameAdapter.js"></script>
+    <script src="src/components/Session.js"></script>
+    <script src="src/components/Game.js"></script>
+    <script src="src/components/App.js"></script>
+    <script src="src/index.js"></script>
+  </body>
 </html>

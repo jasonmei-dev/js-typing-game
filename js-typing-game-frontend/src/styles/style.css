@@ -1,154 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+:root {
+  --primary-color: #bbd7e2;
+  --secondary-color: #dbebf0;
+  --dark-color: #212540;
+  --light-color: #fbe137;
+  --success-color: #2f554b;
+  --alert-color: #7d0729;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  background: var(--primary-color);
+  color: var(--dark-color);
+  line-height: 1.4;
 }
 
 .hidden {
   display: none;
 }
 
-.nav-buttons {
-  text-align: right;
-  margin-right: 20px;
-}
-
-.header {
-  text-align: center;
-}
-
-.welcome {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.player-name {
-  font-size: 22px;
-  font-weight: bold;
-  color: blue;
-}
-
-.button {
-  background-color: black;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 15px;
-  border: none;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.form {
-  border: 1px solid lightgray;
-  border-radius: 15px;
-  background-color: white;
-  z-index: 900;
-  position: fixed;
-  top: 50px;
-  right: 0;
-  width: 200px;
-  margin-right: 10px;
-  padding: 20px;
-  text-align: left;
-}
-
-.form-group {
-  padding-bottom: 10px;
-}
-
-.form label {
-  display: block;
-}
-
-.form input[type='text'], .form input[type='password'] {
-  padding: 4px;
-  width: 75%;
-}
-
-.score {
-  color: red;
-}
-
-.high-score {
-  color: green;
-}
-
-.instructions {
-  border: 1px solid lightgray;
-  background-color: white;
-  border-radius: 15px;
-  width: 50%;
-  position: absolute;
-  right: 25%;
-  z-index: 900;
-  text-align: left;
-}
-
-.x-button {
-  content: '&times';
-  font-size: 20px;
-  position: absolute;
-  margin: 0;
-  right: 8px;
-  padding: 3px;
-}
-
-.instructions h3 {
-  font-size: 20px;
-  text-align: center;
-}
-
-.instructions strong {
-  color: red;
-}
-
-.instructions li {
-  font-size: 18px;
-  padding: 10px;
-}
-
-.app-container {
-  width: 950px;
-  display: inline-block;
-}
-
-.sidebar {
-  display: block;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin: 20px;
-  float: left;
-  text-align: left;
-}
-
-.game-container {
-  display: block;
-  border: 5px solid black;
-  border-radius: 15px;
-  background-color: cyan;
-  width: 600px;
-  height: 500px;
-  margin-right: 20px;
-  position: relative;
-  float: right;
-}
-
-.game-window {
-  height: 500px;
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.game-over {
-  color: red;
-  position: absolute;
-  top: 29%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 40px;
+ul {
+  list-style: none;
 }
 
 .modal-background {
@@ -161,8 +40,126 @@ body {
   opacity: 0.5;
 }
 
+/* Buttons */
+.btn {
+  background: var(--light-color);
+  color: var(--dark-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: var(--dark-color);
+  color: var(--light-color);
+  cursor: pointer;
+}
+
+.instructions-button,
+.login-cancel,
+.signup-cancel {
+  background: var(--secondary-color);
+}
+
+.instructions-button:hover,
+.login-cancel:hover,
+.signup-cancel:hover {
+  color: var(--secondary-color);
+}
+
+.start-button {
+  margin-right: 10px;
+}
+
+/* Navbar */
+#navbar {
+  background: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+#navbar .logo {
+  font-size: 2rem;
+}
+
+#navbar ul {
+  display: flex;
+}
+
+#navbar ul li:nth-child(2) {
+  margin-right: 20px;
+}
+
+.welcome {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.player-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--alert-color);
+}
+
+/* Game Section */
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 70px auto 0 auto;
+}
+
+.sidebar {
+  margin-left: 30px;
+}
+
+.sidebar .sidebar-buttons {
+  margin-top: 30px;
+  display: flex;
+}
+
+.sidebar .score {
+  color: var(--alert-color);
+}
+
+.sidebar .high-score {
+  color: var(--success-color);
+}
+
+.game-container {
+  border: 2px solid var(--dark-color);
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  width: 550px;
+  height: 500px;
+  margin-right: 30px;
+  position: relative;
+}
+
+.game-window {
+  height: 500px;
+  width: 500px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.game-over {
+  color: var(--alert-color);
+  position: absolute;
+  top: 38%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 40px;
+}
+
 .letter {
   position: absolute;
+  font-size: 2rem;
   margin-top: 100%;
   animation-duration: 3s;
   animation-name: slidedown;
@@ -177,4 +174,79 @@ body {
   to {
     margin-top: 100%;
   }
+}
+
+/* Forms */
+.form {
+  border: 1px solid lightgray;
+  background: white;
+  border-radius: 5px;
+  z-index: 10;
+  position: fixed;
+  right: 0;
+  width: 200px;
+  margin: 0 35px;
+  padding: 20px;
+}
+
+.form .form-group {
+  margin-bottom: 10px;
+}
+
+.form label {
+  display: block;
+}
+
+.form input {
+  padding: 5px;
+  border-radius: 5px;
+  border: var(--dark-color) 1px solid;
+}
+
+.form .form-buttons {
+  text-align: center;
+}
+
+.submit,
+.login-cancel,
+.signup-cancel {
+  padding: 5px 10px;
+}
+
+/* Instructions */
+.instructions {
+  border: 1px solid lightgray;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+  width: 50%;
+  right: 25%;
+  padding: 40px;
+  z-index: 10;
+}
+
+.x-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 15px;
+}
+
+.x-button:hover {
+  cursor: pointer;
+}
+
+.instructions h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.instructions ul li span {
+  color: var(--alert-color);
+}
+
+.instructions li {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
